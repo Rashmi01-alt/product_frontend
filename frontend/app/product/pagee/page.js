@@ -1,3 +1,5 @@
+
+// correct code for centrally placed cards
 // import { fetchProducts } from "../../utils/api";
 // import ProductCard from "../../components/ProductCard";
 // // import SearchBar from "../../components/SearchBar";
@@ -20,7 +22,12 @@
 //     </div>
 //   );
 // }
-import { fetchProducts } from "../../utils/api";
+
+
+
+
+// correct code for widely placed cards stretched to the full width
+ import { fetchProducts } from "../../utils/api";
 
 export default async function ProductList() {
   let products = [];
