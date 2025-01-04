@@ -1,11 +1,13 @@
+"use client"
+
 import { useState } from "react";
-import { searchProducts } from "../../utils/api";
-import { useRouter } from "next/router";
+import { searchProducts } from "../utils/api";
+// import { useRouter } from "next/router";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleSearch = async (e) => {
     const searchQuery = e.target.value;
@@ -20,7 +22,7 @@ export default function SearchBar() {
   };
 
   const handleRedirect = (id) => {
-    router.push(`/product/${id}`);
+    // router.push(`/product/${id}`);
   };
 
   return (

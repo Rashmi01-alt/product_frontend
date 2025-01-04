@@ -1,6 +1,11 @@
 
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+
+
+
 
 require("dotenv").config(); // Load environment variables
 
@@ -12,6 +17,7 @@ console.log(process.env.MONGO_URI);
 // Connect to Database
 connectDB();
 
+app.use(cors("*"));
 app.use(express.json());
 
 // Routes

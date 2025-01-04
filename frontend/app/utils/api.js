@@ -2,22 +2,37 @@ import axios from "axios";
 
 const BASE_URL = "http://localhost:5000";
 
+// Fetch all products
 export const fetchProducts = async () => {
-  const { data } = await axios.get(`${BASE_URL}/products`);
-  return data;
+  try {
+    const { data } = await axios.get(`${BASE_URL}/api/products/`);
+    return data;
+  } catch (error) {
+    console.error("Error fetching products:", error.message);
+    throw error;
+  }
 };
 
+// Fetch a product by ID
 export const fetchProductById = async (id) => {
-  const { response } = await axios.get(`${BASE_URL}/products/${id}`);
-   if (!response.ok) {
-     throw new Error("Failed to fetch product");
-   }
-   return response.json();
+  try {
+    const { data } = await axios.get(`${BASE_URL}/api/products/${id}`);
+    return data;
+  } catch (error) {
+    console.error(`Error fetching product with ID ${id}:`, error.message);
+    throw error;
+  }
 };
 
+// Search for products
 export const searchProducts = async (query) => {
-  const { data } = await axios.get(`${BASE_URL}/products/search`, {
-    params: { query },
-  });
-  return data;
+  try {
+    const { data } = await axios.get(`${BASE_URL}/api/products/search`, {
+      params: { query },
+    });
+    return data;
+  } catch (error) {
+    console.error("Error searching products:", error.message);
+    throw error;
+  }
 };

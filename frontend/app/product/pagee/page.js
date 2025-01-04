@@ -1,6 +1,6 @@
 import { fetchProducts } from "../../utils/api";
-import ProductCard from "../components/ProductCard";
-import SearchBar from "../components/SearchBar";
+import ProductCard from "../../components/ProductCard";
+import SearchBar from "../../components/SearchBar";
 
 export default async function ProductList() {
   // Fetch data in the component itself
