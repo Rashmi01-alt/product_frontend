@@ -32,7 +32,7 @@ export const searchProducts = async (query) => {
     });
     return data;
   } catch (error) {
-    console.error("Error searching products:", error.message);
-    throw error;
+    console.error("Error fetching search results:", error.message);
+    return [];
   }
 };
