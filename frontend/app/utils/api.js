@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "http://localhost:6000";
 
 // Fetch all products
 export const fetchProducts = async () => {
@@ -10,6 +10,18 @@ export const fetchProducts = async () => {
   } catch (error) {
     console.error("Error fetching products:", error.message);
     throw error;
+  }
+};
+
+export const searchProducts = async (query) => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/api/products/search`, {
+      params: { query },
+    });
+    return data;
+  } catch (error) {
+    // console.error("Error fetching search results:", error.message);
+    return [];
   }
 };
 
@@ -25,14 +37,4 @@ export const fetchProductById = async (id) => {
 };
 
 // Search for products
-export const searchProducts = async (query) => {
-  try {
-    const { data } = await axios.get(`${BASE_URL}/api/products/search`, {
-      params: { query },
-    });
-    return data;
-  } catch (error) {
-    console.error("Error fetching search results:", error.message);
-    return [];
-  }
-};
+

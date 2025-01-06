@@ -43,10 +43,71 @@
 //   );
 // }
 
+
+//  COORECT CODE
+// import { fetchProductById } from "../../utils/api";
+
+// const ProductDetail = async ({ params }) => {
+//   const id = params?.id;
+
+//   if (!id) {
+//     return (
+//       <div className="text-center text-red-500 mt-10">
+//         Invalid product ID. Please check the URL.
+//       </div>
+//     );
+//   }
+
+//   let product = null;
+
+//   try {
+//     // Fetch product details
+//     product = await fetchProductById(id);
+//   } catch (error) {
+//     console.error(`Failed to fetch product with ID ${id}:`, error.message);
+//     return (
+//       <div className="text-center text-red-500 mt-10">
+//         Failed to load product details. Please try again later.
+//       </div>
+//     );
+//   }
+
+//   // Handle the case where the product is not found
+//   if (!product) {
+//     return (
+//       <div className="text-center text-gray-600 mt-10">
+//         Product not found. Please check the ID.
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="max-w-2xl mx-auto p-6">
+//       <img
+//         src={product.image || "/placeholder-image.jpg"}
+//         alt={product.name}
+//         className="w-full h-64 object-cover rounded mb-4"
+//       />
+//       <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
+//       <p className="text-gray-600 mb-4">Category: {product.category}</p>
+//       <p className="text-green-600 font-semibold text-lg mb-4">
+//         ${product.price}
+//       </p>
+//       <p className="text-gray-800">
+//         {product.description || "No description available."}
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default ProductDetail;
+
+
 import { fetchProductById } from "../../utils/api";
+import ProductCard from "../../components/ProductCard";
 
 const ProductDetail = async ({ params }) => {
-  const id = params?.id;
+  const id = await params?.id;
 
   if (!id) {
     return (
@@ -79,23 +140,7 @@ const ProductDetail = async ({ params }) => {
     );
   }
 
-  return (
-    <div className="max-w-2xl mx-auto p-6">
-      <img
-        src={product.image || "/placeholder-image.jpg"}
-        alt={product.name}
-        className="w-full h-64 object-cover rounded mb-4"
-      />
-      <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
-      <p className="text-gray-600 mb-4">Category: {product.category}</p>
-      <p className="text-green-600 font-semibold text-lg mb-4">
-        ${product.price}
-      </p>
-      <p className="text-gray-800">
-        {product.description || "No description available."}
-      </p>
-    </div>
-  );
+  return <ProductCard product={product} detailedView={true} />;
 };
 
 export default ProductDetail;

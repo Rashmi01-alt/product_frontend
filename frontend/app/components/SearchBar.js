@@ -115,20 +115,26 @@ export default function SearchBar() {
         />
       </div>
       {/* Search Results Dropdown */}
-      {results.length > 0 && (
+      {(results.length > 0 || query.trim()) && (
         <div
-          ref={suggestionBoxRef} // Attach ref to the suggestion box
+          ref={suggestionBoxRef}
           className="absolute left-0 right-0 bg-white border border-gray-200 rounded-md mt-2 max-h-40 overflow-y-auto shadow-lg z-50"
         >
-          {results.map((result) => (
-            <div
-              key={result.id}
-              onClick={() => handleRedirect(result.id)}
-              className="p-2 cursor-pointer hover:bg-gray-100 text-gray-800"
-            >
-              {result.name}
+          {results.length > 0 ? (
+            results.map((result) => (
+              <div
+                key={result.id}
+                onClick={() => handleRedirect(result.id)}
+                className="p-2 cursor-pointer hover:bg-gray-100 text-gray-800"
+              >
+                {result.name}
+              </div>
+            ))
+          ) : (
+            <div className="p-2 text-gray-600 text-center">
+              No products found
             </div>
-          ))}
+          )}
         </div>
       )}
     </div>

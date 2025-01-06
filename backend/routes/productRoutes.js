@@ -9,5 +9,5 @@ const router = express.Router();
 router.get("/", getProducts);
 router.get("/search", searchProducts);
 router.get("/:id", getProductById);
-
+ 
 module.exports = router;

@@ -2,14 +2,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
-
 require("dotenv").config(); // Load environment variables
-
 const connectDB = require("./config/db");
 
-
-console.log(process.env.MONGO_URI);
 
 // Connect to Database
 connectDB();
