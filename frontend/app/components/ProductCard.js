@@ -45,7 +45,7 @@ export default function ProductCard({ product, detailedView = false }) {
       </p>
     </div>
   ) : (
-    <Link href={`/product/${product.id}`}>
+    <Link href={`/product/${product._id}`}>
       <div className="border border-gray-200 rounded-lg shadow-md p-4 bg-white transform transition-transform hover:scale-105 hover:bg-orange-200 duration-100">
         <img
           src={product.image || "/placeholder-image.jpg"}

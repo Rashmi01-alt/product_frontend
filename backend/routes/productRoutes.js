@@ -3,15 +3,15 @@ const {
   getProducts,
   getProductById,
   searchProducts,
+  addProduct
 } = require("../controllers/productController");
 const router = express.Router();
 
+router.post("/add", addProduct);
+
+
 router.get("/", getProducts);
-/**
- * @param {id} - id of the product
- * @param {query} - search query
- * returns {data} - data of the product
- */
+
 router.get("/search", searchProducts);
 router.get("/:id", getProductById);
  

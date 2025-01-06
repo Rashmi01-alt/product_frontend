@@ -64,8 +64,8 @@ export default function SearchBar() {
         >
           {results.map((result) => (
             <div
-              key={result.id}
-              onClick={() => handleRedirect(result.id)}
+              key={result._id}
+              onClick={() => handleRedirect(result._id)}
               className="p-2 cursor-pointer hover:bg-gray-100 text-gray-800"
             >
               {result.name}

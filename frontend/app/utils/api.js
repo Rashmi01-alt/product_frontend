@@ -6,6 +6,7 @@ const BASE_URL = "http://localhost:7000";
 export const fetchProducts = async () => {
   try {
     const { data } = await axios.get(`${BASE_URL}/api/products/`);
+    console.log("Fetched data:", data);
     return data;
   } catch (error) {
     console.error("Error fetching products:", error.message);
