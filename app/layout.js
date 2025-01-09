@@ -2,8 +2,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 
 export const metadata = {
-  title: "Your Project Title",
-  description: "Your Project Description",
+  title: "Product Catalog",
+  description: "",
 };
 
 export default function RootLayout({ children }) {
