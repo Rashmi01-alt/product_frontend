@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:7000";
+const BASE_URL = "https://product-backend-rncp.onrender.com";
 
 // Fetch all products
 export const fetchProducts = async () => {
